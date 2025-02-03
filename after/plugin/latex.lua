@@ -48,7 +48,6 @@ _G.spell_check = function()
     vim.cmd(":setlocal spell spelllang=en_us")
 end
 
-
 -- Map the key (e.g., <leader>p) to compile and open the corresponding PDF
 vim.api.nvim_set_keymap("n", "<leader>make", ":lua compile_tex()<CR>", { noremap = true, silent = true })
 vim.api.nvim_set_keymap("n", "<leader>ltd", ":lua compile_tex_debug()<CR>", { noremap = true, silent = true })
