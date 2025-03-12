@@ -106,9 +106,7 @@ return require('packer').startup(function(use)
     }
     use { "xiyaowong/transparent.nvim", as = "transparent" }
 
-    -- for using plantUML
-    use("javiorfo/nvim-soil")
-    -- different plantUML plugin
+    -- good plantUML plugin
     use {
         'weirongxu/plantuml-previewer.vim',
         requires = {
@@ -126,12 +124,7 @@ return require('packer').startup(function(use)
     }
     use("lervag/vimtex")
     use("github/copilot.vim")
-    use({
-        "stevearc/oil.nvim",
-        config = function()
-            require("oil").setup()
-        end,
-    })
     use("f4z3r/gruvbox-material.nvim")
+    use("lukas-reineke/indent-blankline.nvim")
 end
 )

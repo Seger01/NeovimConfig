@@ -1,15 +1,5 @@
 vim.g.mapleader = " "
 
-vim.keymap.set("n", "<leader>w", ":wa<cr>")
-
--- vim.keymap.set("n", "<leader>pv",)
-
-
-vim.keymap.set("n", "J", "5j")
-vim.keymap.set("n", "K", "5k")
-
-
-
 vim.keymap.set("i", "jk", "<Esc>l")
 
 vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
@@ -20,28 +10,19 @@ vim.keymap.set({ "n", "v" }, "<leader>pp", [["+p]])
 vim.keymap.set({ "n", "v" }, "<leader>d", [["_d]])
 
 -- switching windows
-vim.keymap.set("n", "<leader>th", "<C-W>h")
-vim.keymap.set("n", "<leader>tj", "<C-W>j")
-vim.keymap.set("n", "<leader>tk", "<C-W>k")
-vim.keymap.set("n", "<leader>tl", "<C-W>l")
+vim.keymap.set("n", "<leader>sh", "<C-W>h")
+vim.keymap.set("n", "<leader>sj", "<C-W>j")
+vim.keymap.set("n", "<leader>sk", "<C-W>k")
+vim.keymap.set("n", "<leader>sl", "<C-W>l")
 
 -- closing window
-vim.keymap.set("n", "<leader>tq", "<C-W>q")
+vim.keymap.set("n", "<leader>sq", "<C-W>q")
 
 -- creating horizontal split window
-vim.keymap.set("n", "<leader>ts", "<C-W>s")
+vim.keymap.set("n", "<leader>ss", "<C-W>s")
 
 -- creating vertical split window
-vim.keymap.set("n", "<leader>tv", "<C-W>v")
-
--- vim.keymap.set("i", "<C-H>", "<C-W>", { noremap = true })
-vim.keymap.set("i", "<C-j>", "<C-W>")
-
--- plantuml
-vim.keymap.set("n", "<leader><leader>soil", ":Soil<cr>")
-
--- PythonKeymap
-vim.keymap.set("n", "<leader><leader>run", ":terminal python main.py<cr>")
+vim.keymap.set("n", "<leader>sv", "<C-W>v")
 
 -- Debugger remaps
 vim.keymap.set('n', '<Leader>dc', function() require('dap').continue() end)
