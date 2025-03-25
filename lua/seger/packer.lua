@@ -124,6 +124,12 @@ return require('packer').startup(function(use)
     }
     use("lervag/vimtex")
     use("github/copilot.vim")
+    use({
+        "stevearc/oil.nvim",
+        config = function()
+            require("oil").setup()
+        end,
+    })
     use("f4z3r/gruvbox-material.nvim")
     use("lukas-reineke/indent-blankline.nvim")
 end
