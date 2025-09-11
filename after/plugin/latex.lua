@@ -1,47 +1,47 @@
--- Make the function global by assigning it to _G
-_G.compile_tex = function()
-    -- Get the full path of the current file
-    local file_path = vim.fn.expand("%:p")
-    -- Get the directory of the current file
-    local file_dir = vim.fn.expand("%:p:h")
-    -- Change the file extension to ".pdf"
-    local pdf_path = file_path:gsub("%.tex$", ".pdf")
-
-    vim.cmd(":w")
-
-    -- Compile the LaTeX file using 'latexmk'
-    vim.cmd("silent !latexmk -C")
-    vim.cmd("silent !latexmk -pdf '" .. file_path .. "'")
-    vim.cmd(":set wrap")
-end
-
--- Make the function global by assigning it to _G
-_G.compile_tex_debug = function()
-    -- Get the full path of the current file
-    local file_path = vim.fn.expand("%:p")
-
-    -- Get the directory of the current file
-    local file_dir = vim.fn.expand("%:p:h")
-
-    -- Change the file extension to ".pdf"
-    local pdf_path = file_path:gsub("%.tex$", ".pdf")
-
-    -- Compile the LaTeX file using 'latexmk'
-    vim.cmd("silent !latexmk -C")
-    vim.cmd(":terminal latexmk -pdf '" .. file_path .. "'")
-end
-
--- Make the function global by assigning it to _G
-_G.open_tex = function()
-    -- Get the full path of the current file
-    local file_path = vim.fn.expand("%:p")
-    -- Get the directory of the current file
-    local file_dir = vim.fn.expand("%:p:h")
-    -- Change the file extension to ".pdf"
-    local pdf_path = file_path:gsub("%.tex$", ".pdf")
-
-    vim.cmd("silent !evince '" .. pdf_path .. "' &")
-end
+-- -- Make the function global by assigning it to _G
+-- _G.compile_tex = function()
+--     -- Get the full path of the current file
+--     local file_path = vim.fn.expand("%:p")
+--     -- Get the directory of the current file
+--     local file_dir = vim.fn.expand("%:p:h")
+--     -- Change the file extension to ".pdf"
+--     local pdf_path = file_path:gsub("%.tex$", ".pdf")
+--
+--     vim.cmd(":w")
+--
+--     -- Compile the LaTeX file using 'latexmk'
+--     vim.cmd("silent !latexmk -C")
+--     vim.cmd("silent !latexmk -pdf '" .. file_path .. "'")
+--     vim.cmd(":set wrap")
+-- end
+--
+-- -- Make the function global by assigning it to _G
+-- _G.compile_tex_debug = function()
+--     -- Get the full path of the current file
+--     local file_path = vim.fn.expand("%:p")
+--
+--     -- Get the directory of the current file
+--     local file_dir = vim.fn.expand("%:p:h")
+--
+--     -- Change the file extension to ".pdf"
+--     local pdf_path = file_path:gsub("%.tex$", ".pdf")
+--
+--     -- Compile the LaTeX file using 'latexmk'
+--     vim.cmd("silent !latexmk -C")
+--     vim.cmd(":terminal latexmk -pdf '" .. file_path .. "'")
+-- end
+--
+-- -- Make the function global by assigning it to _G
+-- _G.open_tex = function()
+--     -- Get the full path of the current file
+--     local file_path = vim.fn.expand("%:p")
+--     -- Get the directory of the current file
+--     local file_dir = vim.fn.expand("%:p:h")
+--     -- Change the file extension to ".pdf"
+--     local pdf_path = file_path:gsub("%.tex$", ".pdf")
+--
+--     vim.cmd("silent !evince '" .. pdf_path .. "' &")
+-- end
 
 -- Make the function global by assigning it to _G
 _G.spell_check = function()
@@ -56,6 +56,13 @@ vim.api.nvim_set_keymap("n", "<leader><leader>spellcheck", ":lua spell_check()<C
 
 vim.cmd("let g:vimtex_view_general_viewer = 'evince'")
 vim.cmd("let g:vimtex_quickfix_ignore_filters = ['Underfull','Overfull']")
+
+vim.api.nvim_create_autocmd("BufReadPost", {
+    pattern = { "*.txt", "*.md", "*.tex" },
+    callback = function()
+        vim.opt_local.wrap = true
+    end,
+})
 
 -- vim.api.nvim_create_autocmd("BufWritePost", {
 --     pattern = "*.tex",

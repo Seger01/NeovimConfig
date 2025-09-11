@@ -1,13 +1,5 @@
 local lsp = require('lsp-zero')
 
-lsp.on_attach(function(client, bufnr)
-    -- see :help lsp-zero-keybindings
-    -- to learn the available actions
-    lsp.default_keymaps({ buffer = bufnr })
-end)
-
-
-
 require('mason').setup({})
 require('mason-lspconfig').setup({
     ensure_installed = {
@@ -25,34 +17,22 @@ require('mason-lspconfig').setup({
         end
     },
 })
--- local base = require('lspconfig')
--- local on_attach = base.on_attach
 
-
-require('lspconfig').lua_ls.setup({
-    settings = {
-        Lua = {
-            diagnostics = {
-                -- Get the language server to recognize the `vim` global
-                globals = { 'vim' },
-            },
-        },
-    },
-})
--- require('lspconfig').clangd.setup({
--- on_attach = function(client, bufnr)
--- client.server_capabilities.signatureHelpProvider = false
--- on_attach(client, bufnr);
--- end;
+-- require('lspconfig').lua_ls.setup({
+--     settings = {
+--         Lua = {
+--             diagnostics = {
+--                 -- Get the language server to recognize the `vim` global
+--                 globals = { 'vim' },
+--             },
+--         },
+--     },
 -- })
-
-require('lspconfig').clangd.setup({})
-require('lspconfig').pylsp.setup({})
-require('lspconfig').jsonls.setup({})
-require('lspconfig').bashls.setup({})
-
--- Fix Undefined global 'vim'
--- lsp.nvim_workspace()
+--
+-- require('lspconfig').clangd.setup({})
+-- require('lspconfig').pylsp.setup({})
+-- require('lspconfig').jsonls.setup({})
+-- require('lspconfig').bashls.setup({})
 
 local cmp = require('cmp')
 local cmp_action = require('lsp-zero').cmp_action()

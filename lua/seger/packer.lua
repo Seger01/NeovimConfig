@@ -123,7 +123,7 @@ return require('packer').startup(function(use)
         "jay-babu/mason-nvim-dap.nvim",
     }
     use("lervag/vimtex")
-    use("github/copilot.vim")
+    -- use("github/copilot.vim")
     use({
         "stevearc/oil.nvim",
         config = function()
