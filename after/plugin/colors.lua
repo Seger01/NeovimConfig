@@ -252,9 +252,9 @@ function gruvbox()
             -- by the color scheme
         },
         signs = {
-            highlight = true, -- whether to highlight signs
+            force_background = true,
         },
-        customize = nil,      -- customize the theme in any way you desire, see below what this
+        customize = nil, -- customize the theme in any way you desire, see below what this
         -- configuration accepts
     })
 end
