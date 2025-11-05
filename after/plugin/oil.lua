@@ -128,7 +128,7 @@ require("oil").setup({
         -- optionally override the oil buffers window title with custom function: fun(winid: integer): string
         get_win_title = nil,
         -- preview_split: Split direction: "auto", "left", "right", "above", "below".
-        preview_split = "auto",
+        preview_split = "right",
         -- This is the config that will be passed to nvim_open_win.
         -- Change values here to customize the layout
         override = function(conf)
@@ -138,7 +138,7 @@ require("oil").setup({
     -- Configuration for the file preview window
     preview_win = {
         -- Whether the preview window is automatically updated when the cursor is moved
-        update_on_cursor_moved = false,
+        update_on_cursor_moved = true,
     },
     -- Configuration for the floating action confirmation window
     confirmation = {
@@ -188,3 +188,22 @@ require("oil").setup({
 })
 
 vim.keymap.set("n", "-", "<CMD>Oil --float<CR>", { desc = "Open parent directory" })
+-- vim.keymap.set("n", "-", function()
+--     require("oil").open_float()
+--     -- Wait until the float is created, then open preview
+--     vim.schedule(function()
+--         pcall(function()
+--             require("oil.actions").preview.callback()
+--         end)
+--     end)
+-- end, { desc = "Open parent directory (Oil float with preview)" })
+
+vim.api.nvim_create_autocmd("User", {
+    pattern = "OilEnter",
+    callback = vim.schedule_wrap(function(args)
+        local oil = require("oil")
+        if vim.api.nvim_get_current_buf() == args.data.buf and oil.get_cursor_entry() then
+            oil.open_preview()
+        end
+    end),
+})

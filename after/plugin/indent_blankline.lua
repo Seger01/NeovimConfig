@@ -43,7 +43,7 @@ _G.set_indent_lines = function()
 end
 
 vim.api.nvim_create_autocmd("BufRead", {
-    pattern = "*.vhd",
+    pattern = "*.*",
     -- callback = compile_and_open_pdf(),
     callback = function()
         -- vim.cmd("silent! !pdflatex % >/dev/null 2>&1")
