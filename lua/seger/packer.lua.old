@@ -14,16 +14,17 @@ return require('packer').startup(function(use)
         requires = { { 'nvim-lua/plenary.nvim' } }
     })
 
-    -- themes
-    use({
-        'rose-pine/neovim',
-        as = 'rose-pine',
-        config = function()
-            vim.cmd('colorscheme rose-pine')
-        end
-    })
-    use { "catppuccin/nvim", as = "catppuccin" }
-    use { "Segerss/reddish.nvim", as = "reddish" }
+    -- -- themes
+    -- use({
+    --     'rose-pine/neovim',
+    --     as = 'rose-pine',
+    --     config = function()
+    --         vim.cmd('colorscheme rose-pine')
+    --     end
+    -- })
+    -- use { "catppuccin/nvim", as = "catppuccin" }
+    -- use { "Segerss/reddish.nvim", as = "reddish" }
+    use("f4z3r/gruvbox-material.nvim")
     --
 
     use('nvim-treesitter/nvim-treesitter', { run = ':TSUpdate' })
@@ -91,22 +92,15 @@ return require('packer').startup(function(use)
         end
     }
 
-    -- use {
-    --     "ggandor/leap.nvim",
-    --     requires = {
-    --         { "tpope/vim-repeat" },
-    --     }
-    -- }
-
     use {
         "easymotion/vim-easymotion",
         requires = {
             { "tpope/vim-repeat" },
         }
     }
-    use { "xiyaowong/transparent.nvim", as = "transparent" }
 
-    -- good plantUML plugin
+
+    -- PlantUML plugin
     use {
         'weirongxu/plantuml-previewer.vim',
         requires = {
@@ -123,14 +117,19 @@ return require('packer').startup(function(use)
         "jay-babu/mason-nvim-dap.nvim",
     }
     use("lervag/vimtex")
-    -- use("github/copilot.vim")
+
     use({
         "stevearc/oil.nvim",
         config = function()
             require("oil").setup()
         end,
     })
-    use("f4z3r/gruvbox-material.nvim")
+
     use("lukas-reineke/indent-blankline.nvim")
+
+    -- Plugin for github copilot that I no longer use
+    -- use("github/copilot.vim")
+    -- Plugin for transparency, that I no longer want
+    -- use { "xiyaowong/transparent.nvim", as = "transparent" }
 end
 )
