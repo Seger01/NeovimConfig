@@ -7,9 +7,7 @@ return {
         dependencies = { "mfussenegger/nvim-dap", "nvim-neotest/nvim-nio" },
         config = function()
             require("dapui").setup()
-
             local dap, dapui = require("dap"), require("dapui")
-
             dap.adapters.cppdbg = {
                 id = 'cppdbg',
                 type = 'executable',

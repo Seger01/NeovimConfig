@@ -1,7 +1,5 @@
 vim.g.mapleader = " "
 
--- vim.keymap.set("i", "jk", "<Esc>l")
-
 vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
 vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv")
 
@@ -18,10 +16,5 @@ vim.keymap.set("n", "<leader>sl", "<C-W>l")
 -- closing window
 vim.keymap.set("n", "<leader>sq", "<C-W>q")
 
--- creating horizontal split window
-vim.keymap.set("n", "<leader>ss", "<C-W>s")
-
 -- creating vertical split window
 vim.keymap.set("n", "<leader>sv", "<C-W>v")
-
-
