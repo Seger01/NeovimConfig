@@ -18,7 +18,7 @@ vim.opt.rtp:prepend(lazypath)
 -- Setup lazy.nvim
 require("lazy").setup({
     spec = {
-        { import = "seger.plugins" },
+        { import = "plugins" },
     },
     checker = { enabled = false },
     change_detection = { notify = false },

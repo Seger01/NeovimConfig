@@ -1,1 +1,1 @@
-require("seger.init")
+require("init")
