@@ -1,6 +1,10 @@
 return {
     -- base16-nvim is configured via matugen.lua, not here
-    "RRethy/base16-nvim",
+    {
+        "RRethy/base16-nvim",
+        priority = 1000,
+        lazy = false,
+    },
     -- {
     --     "f4z3r/gruvbox-material.nvim",
     --     priority = 1000,

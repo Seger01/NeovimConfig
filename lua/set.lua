@@ -30,3 +30,7 @@ vim.opt.isfname:append("@-@")
 vim.opt.updatetime = 50
 
 vim.opt.colorcolumn = "120"
+
+-- This is needed for the copying from inside the docker container to the outer system clipboard through invisible terminal prints
+-- Maybe temp
+vim.g.clipboard = 'osc52'
