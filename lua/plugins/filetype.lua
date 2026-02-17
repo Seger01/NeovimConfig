@@ -16,7 +16,7 @@ return {
             vim.api.nvim_set_keymap("n", "<leader><leader>spellcheck", ":lua spell_check()<CR>",
                 { noremap = true, silent = true })
 
-            vim.cmd("let g:vimtex_view_general_viewer = 'zathura'")
+            vim.cmd("let g:vimtex_view_general_viewer = 'evince'")
             vim.cmd("let g:vimtex_quickfix_ignore_filters = ['Underfull','Overfull']")
 
             vim.api.nvim_create_autocmd("BufReadPost", {

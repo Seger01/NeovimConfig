@@ -4,27 +4,27 @@
 vim.o.background = "light"
 
 require('base16-colorscheme').setup({
-    base00 = '#111C18',
-    base01 = '#23372B',
-    base02 = '#53685B',
-    base03 = '#C1C497',
-    base04 = '#F6F5DD',
-    base05 = '#C1C497',
-    base06 = '#D7C995',
-    base07 = '#9EEBB3',
-    base08 = '#0F744D',
-    base09 = '#1A8C5B',
-    base0A = '#E5C736',
-    base0B = '#549e6a',
-    base0C = '#2DD5B7',
-    base0D = '#0B985C',
-    base0E = '#185F44',
-    base0F = '#75bbb3',
+    base00 = '#16172d',
+    base01 = '#1b1c36',
+    base02 = '#30365F',
+    base03 = '#686f9a',
+    base04 = '#818596',
+    base05 = '#ecf0c1',
+    base06 = '#c1c3cc',
+    base07 = '#ffffff',
+    base08 = '#e33400',
+    base09 = '#e39400',
+    base0A = '#f2ce00',
+    base0B = '#5ccc96',
+    base0C = '#00a3cc',
+    base0D = '#7a5ccc',
+    base0E = '#b3a1e6',
+    base0F = '#ce6f8f',
 })
 
 -- Disable terminal background transparency for nvim
-vim.api.nvim_set_hl(0, 'Normal', { bg = '#111C18', fg = '#C1C497' })
-vim.api.nvim_set_hl(0, 'NormalFloat', { bg = '#111C18', fg = '#C1C497' })
+vim.api.nvim_set_hl(0, 'Normal', { bg = '#16172d', fg = '#ecf0c1' })
+vim.api.nvim_set_hl(0, 'NormalFloat', { bg = '#16172d', fg = '#ecf0c1' })
 
 local function set_hl_multiple(groups, value)
     for _, v in pairs(groups) do
@@ -33,27 +33,27 @@ local function set_hl_multiple(groups, value)
 end
 
 vim.api.nvim_set_hl(0, 'Visual', {
-    bg = '#53685B',
-    fg = '#C1C497',
+    bg = '#30365F',
+    fg = '#ecf0c1',
 })
 
 set_hl_multiple({ 'TSComment', 'Comment' }, {
-    fg = '#C1C497',
+    fg = '#686f9a',
 })
 
 set_hl_multiple({ 'TSMethod', 'Method' }, {
-    fg = '#0B985C',
+    fg = '#7a5ccc',
 })
 
 set_hl_multiple({ 'TSFunction', 'Function' }, {
-    fg = '#185F44',
+    fg = '#b3a1e6',
 })
 
 vim.api.nvim_set_hl(0, 'Keyword', {
-    fg = '#185F44',
+    fg = '#b3a1e6',
 })
 
 vim.api.nvim_set_hl(0, 'MsgArea', {
-    bg = '#23372B',
-    fg = '#0B985C',
+    bg = '#1b1c36',
+    fg = '#7a5ccc',
 })
